@@ -1,17 +1,25 @@
-import React from "react";
-import { View, Text, Image } from "react-native";
+import {Text, View, StyleSheet, Image} from "react-native";
 
-export default function CardPerfil() {
+export default function CardPerfil({local_img, nome, descricao}) {
     return (
-        <View style={{ alignItems: "center", marginBottom: 20 }}>
-            <Image
-                source={{ uri: "https://i.imgur.com/5R8z8BM.png" }}
-                style={{ width: 120, height: 120, borderRadius: 60 }}
-            />
-            <Text style={{ fontSize: 18, fontWeight: "bold", marginTop: 10 }}>
-                Peter Parker (Homem-Aranha)
-            </Text>
-            <Text>"Com grandes poderes vêm grandes responsabilidades."</Text>
+        <View>
+            <Text style={styles.nome}>{nome}</Text>
+            <Image style={styles.image} src={local_img}></Image>
+            <Text style={styles.descricao}>{descricao}</Text>
         </View>
-    );
+    )
 }
+
+const styles = StyleSheet.create({
+    nome: {
+        fontSize: 20,
+        fontFamily: 'Arial, helvetica, sans-serif',
+    },
+    descricao: {
+        fontSize: 18,
+    },
+    image: {
+        backgroundColor: 'transparent',
+        maxWidth: 60
+    }
+})

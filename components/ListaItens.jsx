@@ -1,11 +1,12 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React from 'react';
+import { View, Text } from 'react-native';
 
-export default function ListaItens(props) {
+export default function ListaItens({ array }) {
+    // Usando a função map, para cada componente do array eu posso retornar elementos.
     return (
-        <View style={{ marginTop: 10 }}>
-            {props.itens.map((item, index) => (
-                <Text key={index}>• {item}</Text>
+        <View>
+            {array.map((item, index) => (
+                <Text key={index}>{item}</Text>
             ))}
         </View>
     );
