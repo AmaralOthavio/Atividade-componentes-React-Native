@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     },
     image: {
         backgroundColor: 'transparent',
-        maxWidth: 60
+        maxWidth: 60,
+        borderRadius: 30,
     }
 })

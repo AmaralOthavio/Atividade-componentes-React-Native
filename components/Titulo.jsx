@@ -1,10 +1,10 @@
 import {Text, View, StyleSheet} from "react-native";
 
-export default function Titulo({ valor, texto }) {
+export default function Titulo({ texto1, texto2 }) {
     return (
         <View>
-            <Text style={styles.titulo}> {valor} </Text>
-            <Text style={styles.subtitulo}> {texto} </Text>
+            <Text style={styles.titulo}> {texto1} </Text>
+            <Text style={styles.subtitulo}> {texto2} </Text>
         </View>
     )
 }
@@ -14,12 +14,14 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 24,
         fontWeight: "light",
-        color: "black"
+        color: "black",
+        marginBottom: 40,
     },
 
     titulo: {
         textAlign: "center",
         fontSize: 36,
+        marginTop: 40,
         fontWeight: "bold",
         color: "red"
     }

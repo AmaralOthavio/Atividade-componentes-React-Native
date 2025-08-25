@@ -1,35 +1,38 @@
-import {Button, Text, View, StyleSheet} from "react-native";
-import {useState} from "react";
+import {Button, Text, View, StyleSheet, ScrollView} from "react-native";
+import { useState } from "react";
 import Titulo from "./components/Titulo";
 import BotaoCustomizado from "./components/BotaoCustomizado";
+import ListaItens from "./components/ListaItens";
+import CardPerfil from "./components/CardPerfil";
 
 export default function App() {
     const [numero, setNumero] = useState(0);
+    const [componentes, setComponentes] = useState([]);
 
-    function adicionar() {
+    function criarEspada() {
+        setComponentes([...componentes, <ListaItens key={numero} array={[" ", "^", "||", "||", "||", "||", "===", "||", "o"]} />]);
         setNumero(numero + 1);
     }
 
-    function remover() {
-        setNumero(numero - 1);
-    }
-
     return (
-        <View style={styles.container}>
-            <Titulo valor={numero} texto={"Contador"} />
+        <ScrollView style={styles.container}>
+            <CardPerfil local_img={"imagem_aqui"} nome={"Ferreiro Rutherfórdio"} descricao={"O ferreiro da cidade"}></CardPerfil>
+            <Titulo texto1={"Bem-vindo ao ferreiro!"} texto2={"Peça para ele forjar uma espada"} />
+            <Text>Quantidade de espadas: {numero}</Text>
 
             {/* BTN */}
-            <BotaoCustomizado texto={"Aumentar"} funcao={adicionar}></BotaoCustomizado>
-            <BotaoCustomizado texto={"Diminuir"} funcao={remover}></BotaoCustomizado>
-        </View>
-    )
+            <BotaoCustomizado texto={"Forjar Espada"} funcao={criarEspada} />
+
+            {/* Renderizando os componentes adicionados */}
+            {componentes}
+        </ScrollView>
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: 20
+        gap: 20,
+        marginTop: 50
     }
-})
+});
