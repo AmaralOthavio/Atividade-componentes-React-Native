@@ -1,26 +1,10 @@
-import {Text, View, StyleSheet} from "react-native";
+import React from "react";
+import { Text } from "react-native";
 
-export default function Titulo({ valor, texto }) {
+export default function Titulo(props) {
     return (
-        <View>
-            <Text style={styles.titulo}> {valor} </Text>
-            <Text style={styles.subtitulo}> {texto} </Text>
-        </View>
-    )
+        <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 10 }}>
+            {props.texto}
+        </Text>
+    );
 }
-
-const styles = StyleSheet.create({
-    subtitulo: {
-        textAlign: "center",
-        fontSize: 24,
-        fontWeight: "light",
-        color: "black"
-    },
-
-    titulo: {
-        textAlign: "center",
-        fontSize: 36,
-        fontWeight: "bold",
-        color: "red"
-    }
-})

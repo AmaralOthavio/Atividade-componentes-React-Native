@@ -1,35 +1,28 @@
-import {Button, Text, View, StyleSheet} from "react-native";
-import {useState} from "react";
+import React from "react";
+import { ScrollView, View } from "react-native";
 import Titulo from "./components/Titulo";
+import CardPerfil from "./components/CardPerfil";
 import BotaoCustomizado from "./components/BotaoCustomizado";
+import ListaItens from "./components/ListaItens";
+import CampoTexto from "./components/CampoTexto";
 
 export default function App() {
-    const [numero, setNumero] = useState(0);
-
-    function adicionar() {
-        setNumero(numero + 1);
-    }
-
-    function remover() {
-        setNumero(numero - 1);
-    }
+    const missoes = [
+        "Salvar Nova York",
+        "Enfrentar o Duende Verde",
+        "Ajudar o Doutor Estranho",
+        "Proteger Mary Jane",
+        "Estudar para as provas"
+    ];
 
     return (
-        <View style={styles.container}>
-            <Titulo valor={numero} texto={"Contador"} />
-
-            {/* BTN */}
-            <BotaoCustomizado texto={"Aumentar"} funcao={adicionar}></BotaoCustomizado>
-            <BotaoCustomizado texto={"Diminuir"} funcao={remover}></BotaoCustomizado>
-        </View>
-    )
+        <ScrollView style={{ flex: 1, padding: 20 }}>
+            <Titulo texto="🕷️ Bem-vindo ao App do Homem-Aranha!" />
+            <CardPerfil />
+            <BotaoCustomizado label="Clique aqui" cor="red" />
+            <Titulo texto="Missões:" />
+            <ListaItens itens={missoes} />
+            <CampoTexto />
+        </ScrollView>
+    );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: 20
-    }
-})
